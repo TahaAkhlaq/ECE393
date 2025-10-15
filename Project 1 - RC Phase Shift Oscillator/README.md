@@ -142,4 +142,5 @@ The linear-scale gain plot highlights how the amplifier maintains a relatively f
 2. **Transient Simulation** (RC ladder connected):  
    ```spice
    .tran 0 100m startup
+   .ac dec 1000 1k 500Meg
 
