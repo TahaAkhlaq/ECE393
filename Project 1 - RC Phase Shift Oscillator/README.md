@@ -7,7 +7,7 @@ This project designs, simulates, and analyzes a **single-transistor RC phase-shi
 The CE stage provides an inherent **180° phase inversion**; the RC ladder contributes the remaining **~180°** at the oscillation frequency **f₀**.  
 When both **Barkhausen conditions** are satisfied:
 
-**|Aβ| = 1** and **∠(Aβ) = 0° (mod 360°)**,
+**|Aβ| = 1** and **∠(Aβ) = 0°**,
 
 small noise is reinforced, and the circuit settles to a **self-sustained sinusoid**.  
 As amplitude grows, device nonlinearities reduce the effective loop gain slightly below unity, naturally **stabilizing** the waveform.
