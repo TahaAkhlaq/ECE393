@@ -25,7 +25,6 @@ For three identical RC sections:
 **f₀ ≈ 1 / (2π·R·C·√6)**
 
 This formula predicts the oscillation frequency assuming equal resistor and capacitor values.  
-Plaintext reference: `f0 ≈ 1 / (2π·R·C·√6)`.
 
 ### Minimum Amplifier Gain
 To overcome the ladder’s attenuation at **f₀**, the CE amplifier must provide approximately:
