@@ -35,7 +35,7 @@ By the end of this course, students gain confidence in taking a circuit from con
 
 ## Projects
 
-### [Project 1 — RC Phase-Shift Oscillator](./Project%201%20-%20RC%20Phase%20Shift%20Oscillator/ "Read More")
+### [Project 1: RC Phase-Shift Oscillator](./Project%201%20-%20RC%20Phase%20Shift%20Oscillator/ "Read More")
 
 A single-transistor BJT **common-emitter** oscillator using a three-stage RC ladder network. The design demonstrates the **Barkhausen criteria** and phase-shift feedback required for sustained sinusoidal oscillation.
 
