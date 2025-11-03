@@ -1,4 +1,4 @@
-# ECE393 — Junior Electrical Engineering Projects I
+# ECE393 - Junior Electrical Engineering Projects I
 
 This repository contains coursework and projects from **ECE393: Junior Electrical Engineering Projects I** at [The Cooper Union](https://cooper.edu/engineering/courses/electrical-and-computer-engineering-undergraduate/ece-393), instructed by **Professor Koo**.
 
