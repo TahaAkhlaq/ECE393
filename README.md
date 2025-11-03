@@ -41,6 +41,14 @@ A single-transistor BJT **common-emitter** oscillator using a three-stage RC lad
 
 > **Schematic**
 ![RC Oscillator Schematic](./Project%201%20-%20RC%20Phase%20Shift%20Oscillator/schematic.png)
+
+### [Project 2: Colpitts Oscillator](./Project%202%20-%20Colpitts%20Oscillator/ "Read More")
+
+A Colpitts LC oscillator using a 2N2222 common-emitter stage with capacitive divider feedback. Designed at \(V_{CC}=10\text{ V}\); bias near mid-supply; startup ensured by \(|A_v\beta|>1\).
+
+> **Schematic**  
+![Colpitts Schematic](./Project%202%20-%20Colpitts%20Oscillator/schematic.png)
+
 ---
 
 ## Copyright & Licensing
