@@ -1,4 +1,4 @@
-# Project 1 — RC Phase-Shift Oscillator
+# Project 1: RC Phase-Shift Oscillator
 
 ---
 
