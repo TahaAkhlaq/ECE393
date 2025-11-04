@@ -80,11 +80,11 @@ $V_{\mathrm{out}}$ is taken **after** the coupling capacitor $C_{\mathrm{out}}$.
 
 | Parameter | Simulated | Observed | Change [+/−] | Error [%] |
 |:--|--:|--:|--:|--:|
-| Frequency [$\text{MHz}$] | 11.798 | 7.41 | −4.388 | 37.19 |
-| $V_{\mathrm{out,pp}}$ [$\text{V}$] | 10.2 | 8.5 | −1.7 | 16.67 |
-| Current [$\text{mA}$] | 2.295 | 4.045 | +1.75 | 76.25 |
-| Power [$\text{mW}$] | 22.77 | 40.69 | +17.92 | 78.69 |
-| FoM [$\text{dB}$] | 91.98 | 83.87 | −8.11 | 8.82 |
+| Frequency [MHz] | 11.798 | 7.41 | −4.388 | 37.19 |
+| $V_{\mathrm{out,pp}}$ [V] | 10.2 | 8.5 | −1.7 | 16.67 |
+| Current [mA] | 2.295 | 4.045 | +1.75 | 76.25 |
+| Power [mW] | 22.77 | 40.69 | +17.92 | 78.69 |
+| FoM [dB] | 91.98 | 83.87 | −8.11 | 8.82 |
 
 ---
 
@@ -118,25 +118,6 @@ which shunts signal to ground, reducing effective $A_v$. Oscillation settles whe
 
 $$
 P_{\mathrm{DC}}=V_{CC}\,I_{\mathrm{avg}}.
-$$
-
----
-
-### Saturation analysis on $V_C$
-
-**Headroom at negative peak**  
-$$
-V_C \downarrow \;\Rightarrow\; V_{CE} \downarrow \;\Rightarrow\; V_{CE} \to V_{CE(\mathrm{sat})}
-$$
-
-**Exit from saturation**  
-$$
-I_B \downarrow,\; I_C \downarrow \;\Rightarrow\; \Delta V_{RC} \downarrow \;\Rightarrow\; V_C \uparrow
-$$
-
-**Overshoot above $V_{CC}$**  
-$$
-I_C \to 0 \text{ (at cutoff)} \;\Rightarrow\; V_{\mathrm{KICK}} \approx L\,\frac{di}{dt},\quad V_C > V_{CC} \text{ transiently}
 $$
 
 ---
