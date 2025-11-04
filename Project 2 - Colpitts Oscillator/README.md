@@ -1,72 +1,78 @@
 # Project 2: Colpitts Oscillator
 
-A Colpitts LC oscillator using a 2N2222 common-emitter stage with a capacitive-divider feedback network. Supply \(V_{CC}=10\ \text{V}\). Bias near mid-supply provides headroom. Startup requires \(|A_v\beta|>1\) at the tank resonance.
+A Colpitts LC oscillator using a 2N2222 common-emitter stage with a capacitive-divider feedback network. Designed at $V_{CC}=10\ \text{V}$ with bias near mid-supply; startup ensured by $|A_v\beta|>1$.
 
 > **Schematic**  
 > ![Schematic](./Schematic.png)
 
 > **Breadboard (annotated)**  
-> ![Breadboard](./breadboard_annotated.png)
+> ![Breadboard annotated](./breadboard_annotated.png)
 
 ---
 
 ## Theory of Operation
 
 ### Colpitts feedback and loop gain
-The divider formed by \(C_1\) and \(C_2\) returns a fraction of the collector swing to the emitter.
+
+The divider formed by $C_1$ and $C_2$ returns a fraction of the collector swing to the emitter.
 
 $$
-\beta \approx \frac{C_1}{C_2}\quad \text{for } C_2 \gg C_1
+\beta \approx \frac{C_1}{C_2}\qquad(C_2\gg C_1)
 $$
 
 Required midband voltage gain for startup:
 
 $$
-|A_v| \gtrsim \frac{1}{|\beta|} \approx \frac{C_2}{C_1}
+|A_v|\gtrsim \frac{1}{|\beta|}\approx \frac{C_2}{C_1}
 $$
 
-With \(C_1=10\ \text{pF}\) and \(C_2=100\ \text{pF}\): \(\beta\approx 0.1\) and \(|A_v|\gtrsim 10\).
+With $C_1=10\ \text{pF}$ and $C_2=100\ \text{pF}$: $\beta\approx 0.1$ and $|A_v|\gtrsim 10$.
 
 ### Resonant frequency
-Equivalent tank capacitance and oscillation frequency:
+
+The tank has $L$ in series with $C_1$ and $C_2$; the equivalent capacitance and frequency are
 
 $$
-C_{\text{eq}}=\frac{C_1 C_2}{C_1+C_2},\qquad
-f_0=\frac{1}{2\pi\sqrt{L\,C_{\text{eq}}}}
+C_{\mathrm{eq}}=\frac{C_1C_2}{C_1+C_2},
+\qquad
+f_0=\frac{1}{2\pi\sqrt{L C_{\mathrm{eq}}}}.
 $$
 
 ### Amplitude control
-Growth pushes the BJT into saturation near the negative peak and into cutoff near the positive peak. At the bottom:
+
+As $|A_v\beta|>1$ grows the signal, the BJT limits the swing by entering saturation near the negative peak and cutoff near the positive peak. At the bottom,
 
 $$
-V_{CE}\approx V_{CE(\text{sat})}
+V_{CE}\approx V_{CE(\mathrm{sat})}
 $$
 
-Bottom clipping reduces effective loop gain toward unity and stabilizes amplitude.
+so **bottom clipping** reduces effective loop gain toward unity and stabilizes amplitude.
 
 ### Inductive kickback and overshoot
-When the transistor cuts off, inductor current cannot change instantaneously. The tank forces current through \(R_C\), producing a positive overshoot:
+
+When the transistor cuts off, inductor current cannot change instantly. The tank drives current through $R_C$, producing a positive overshoot:
 
 $$
-V_{\text{KICK}} \approx L\,\frac{di}{dt},\qquad
-V_{C,\max} \lesssim V_{CC}+V_{\text{KICK}}
+V_{\mathrm{KICK}}\approx L\frac{di}{dt},\qquad
+V_{C,\max}\lesssim V_{CC}+V_{\mathrm{KICK}}.
 $$
 
 ### Why the output baseline appears low
-\(V_{\text{out}}\) is taken after the coupling capacitor \(C_{\text{out}}\). True DC is blocked so the node is 0 V in simulation. In hardware, the LC tank, probe capacitance, and return path form a finite-impedance AC network. The RMS current through that network creates an average drop that visually shifts the plotted baseline toward \(V_E\) even though the DC is effectively 0 V.
+
+$V_{\mathrm{out}}$ is taken **after** the coupling capacitor $C_{\mathrm{out}}$. True DC is blocked so the node is $0\ \text{V}$ in simulation. In hardware the LC tank, probe capacitance, and return path form a finite-impedance AC network; the required RMS current through that network creates an average drop that **visually** shifts the plotted baseline toward $V_E$ even though the actual DC is near $0\ \text{V}$.
 
 ---
 
 ## Simulation Results
 
 > **Steady-state output: frequency**  
-> ![Frequency](./waveform_freq.png)
+> ![waveform freq](./waveform_freq.png)
 
-> **Steady-state output: peak-to-peak**  
-> ![Vpp](./waveform_vpp.png)
+> **Steady-state output: $V_{\mathrm{out,pp}}$**  
+> ![waveform vpp](./waveform_vpp.png)
 
-> **Average current and DC power**  
-> ![Current and Power](./sim_current_power.png)
+> **Supply current and DC power (sim)**  
+> ![sim current and power](./sim_current_power.png)
 
 ---
 
@@ -74,105 +80,105 @@ $$
 
 | Parameter | Simulated | Observed | Change [+/−] | Error [%] |
 |:--|--:|--:|--:|--:|
-| Frequency [MHz] | 11.798 | 7.41 | −4.388 | 37.19 |
-| \(V_{\text{out,pp}}\) [V] | 10.2 | 8.5 | −1.7 | 16.67 |
-| Current [mA] | 2.295 | 4.045 | +1.75 | 76.25 |
-| Power [mW] | 22.77 | 40.69 | +17.92 | 78.69 |
-| FoM [dB] | 91.98 | 83.87 | −8.11 | 8.82 |
+| Frequency [$\text{MHz}$] | 11.798 | 7.41 | −4.388 | 37.19 |
+| $V_{\mathrm{out,pp}}$ [$\text{V}$] | 10.2 | 8.5 | −1.7 | 16.67 |
+| Current [$\text{mA}$] | 2.295 | 4.045 | +1.75 | 76.25 |
+| Power [$\text{mW}$] | 22.77 | 40.69 | +17.92 | 78.69 |
+| FoM [$\text{dB}$] | 91.98 | 83.87 | −8.11 | 8.82 |
 
 ---
 
 ## Why lab differs from simulation
 
 ### 1) Frequency is lower
-Cause: added capacitance raises \(C_{\text{eq}}\) and reduces \(f_0\).
+
+**Cause:** added capacitance raises $C_{\mathrm{eq}}$ and reduces $f_0$.
 
 $$
-f_0=\frac{1}{2\pi\sqrt{L\,(C_1\parallel C_{\text{par}})\,(C_2\parallel C_{\text{par}})/(C_1\parallel C_{\text{par}}+C_2\parallel C_{\text{par}})}}
+f_0=\frac{1}{2\pi}\sqrt{\frac{1}{L\,\left(\dfrac{(C_1\parallel C_{\mathrm{par}})(C_2\parallel C_{\mathrm{par}})}{C_1\parallel C_{\mathrm{par}}+C_2\parallel C_{\mathrm{par}}}\right)}}
 $$
 
-Sources: scope probe 10× tip \(10\text{–}15\ \text{pF}\), BJT \(C_\mu, C_\pi\), wiring, breadboard.
+**Sources:** scope probe 10× tip ($\approx 10$–$15\ \text{pF}$), BJT ($C_\mu, C_\pi$), wiring, breadboard.
 
-### 2) Output \(V_{\text{pp}}\) is lower
-Cause: probe and wiring load the tank and the amplifier.
+### 2) Output $V_{\mathrm{out,pp}}$ is lower
+
+**Cause:** probe and wiring load the tank and amplifier.
+
+At MHz, the probe capacitance has low reactance
 
 $$
-X_C=\frac{1}{2\pi f C}\ \text{is small at MHz} \Rightarrow \text{shunt to ground} \Rightarrow |A_v|_{\text{real}}<|A_v|_{\text{sim}}
+X_C=\frac{1}{2\pi f C},
 $$
 
-Oscillation settles where \(|A_v\beta|\approx 1\), so a smaller \(|A_v|\) yields a smaller \(V_{\text{pp}}\).
+which shunts signal to ground, reducing effective $A_v$. Oscillation settles when $|A_v\beta|\approx 1$, so a lower $A_v$ yields a smaller $V_{\mathrm{out,pp}}$.
 
 ### 3) Power is higher
-Cause: parasitic resistance dissipates energy each cycle. ESR in the tank, wiring, and probe returns increases average collector current.
+
+**Cause:** parasitic resistance dissipates energy each cycle. Tank ESR, wiring, and probe returns convert circulating RF current into heat; the transistor must replace this energy, raising average current $I_{\mathrm{avg}}$:
 
 $$
-P_{DC}=V_{CC}\,I_{\text{avg}}
+P_{\mathrm{DC}}=V_{CC}\,I_{\mathrm{avg}}.
 $$
 
 ---
 
-## Saturation analysis on \(V_C\)
+## Saturation analysis on $V_C$
 
-- Headroom at negative peak:
-
+**Headroom at negative peak**
 $$
-V_C\downarrow \Rightarrow V_{CE}\downarrow \Rightarrow V_{CE}\to V_{CE(\text{sat})}
-$$
-
-- Exit from saturation:
-
-$$
-I_B\downarrow,\ I_C\downarrow \Rightarrow \Delta V_{RC}\downarrow \Rightarrow V_C\uparrow
+V_C\downarrow\ \Rightarrow\ V_{CE}\downarrow\ \Rightarrow\ V_{CE}\to V_{CE(\mathrm{sat})}.
 $$
 
-- Overshoot above \(V_{CC}\):
-
+**Exit from saturation**
 $$
-I_C\to 0 \Rightarrow V_{\text{KICK}}\approx L\,\frac{di}{dt},\quad V_C>V_{CC}\ \text{transiently}
+I_B\downarrow,\ I_C\downarrow\ \Rightarrow\ \Delta V_{RC}\downarrow\ \Rightarrow\ V_C\uparrow.
+$$
+
+**Overshoot above $V_{CC}$**
+$$
+I_C\to 0\ \text{at cutoff}\ \Rightarrow\ V_{\mathrm{KICK}}\approx L\frac{di}{dt},\quad V_C>V_{CC}\ \text{transiently}.
 $$
 
 ---
 
 ## Design change to reduce clipping and drive
 
-Adjustment: decrease \(R_C\) to increase headroom and lower gain.
+**Adjustment:** decrease $R_C$ to increase headroom and lower gain.
 
-- \(R_C: 2.2\ \text{k}\Omega \rightarrow 1\ \text{k}\Omega\)
-- Bias effect: \(V_C\uparrow\Rightarrow V_{CE}\uparrow\) so more downward headroom.
-- Loop-gain effect: \(|A_v|\downarrow\) so \(|A_v\beta|\) is closer to 1.
-- Result (simulation): \(f\approx 13.827\ \text{MHz}\), \(V_{pp}\approx 8.654\ \text{V}\), \(P\approx 28.9\ \text{mW}\), FoM \(\approx 90.9\ \text{dB}\). Clipping is mitigated and the waveform is cleaner.
+- $R_C: 2.2\ \text{k}\Omega \rightarrow 1\ \text{k}\Omega$
+- $V_C\uparrow \Rightarrow V_{CE}\uparrow$ so more downward headroom before saturation
+- $A_v\downarrow$ so $|A_v\beta|$ is closer to 1 at steady state
+
+**Result (simulation):** $f\approx 13.827\ \text{MHz}$, $V_{pp}\approx 8.654\ \text{V}$, $P\approx 28.9\ \text{mW}$, FoM $\approx 90.9\ \text{dB}$; clipping is mitigated and the waveform is cleaner.
 
 ---
 
 ## Reproduction steps
 
-1. Open `colpitts.asc`.
+1. **Open** `colpitts.asc`.
 
-2. Bias and startup transient
-   `text
+2. **Bias and startup transient**
+   `spice
    .tran 0 15m startup
    `
 
-Probe \(V_C\), \(V_E\), and \(V_{\text{out}}\). Verify the bottom flat near \(V_{CE(\text{sat})}\) and the positive overshoot above \(V_{CC}\).
+Probe $V_C$, $V_E$, and $V_{\mathrm{out}}$. Verify the bottom flat near $V_{CE(\mathrm{sat})}$ and the positive overshoot above $V_{CC}$.
 
 3. Frequency and amplitude  
-Measure period \(T\) and compute
+Measure period $T$ and compute
 
 $$
 f_0=\frac{1}{T}
 $$
 
-Read \(V_{\text{out,pp}}\) from the waveform.
+Read $V_{\mathrm{out,pp}}$ from the waveform.
 
 4. Power  
 Plot supply current and compute
 
 $$
-P_{DC}=V_{CC}\,I_{\text{avg}}
+P_{DC}=V_{CC}\I_{\text{avg}}
 $$
-
-5. Variant with headroom fix  
-Change \(R_C\rightarrow 1\ \text{k}\Omega\) and re-run.
 
 ---
 
