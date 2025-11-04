@@ -124,19 +124,19 @@ $$
 
 ### Saturation analysis on $V_C$
 
-**Headroom at negative peak**
+**Headroom at negative peak**  
 $$
-V_C \downarrow \;\Rightarrow\; V_{CE} \downarrow \;\Rightarrow\; V_{CE}\to V_{CE(\mathrm{sat})}
-$$
-
-**Exit from saturation**
-$$
-I_B \downarrow,\ I_C \downarrow \;\Rightarrow\; \Delta V_{RC} \downarrow \;\Rightarrow\; V_C \uparrow
+V_C \downarrow \;\Rightarrow\; V_{CE} \downarrow \;\Rightarrow\; V_{CE} \to V_{CE(\mathrm{sat})}
 $$
 
-**Overshoot above $V_{CC}$**
+**Exit from saturation**  
 $$
-I_C \to 0 \ \text{at cutoff} \;\Rightarrow\; V_{\mathrm{KICK}}\approx L\,\frac{di}{dt},\quad V_C>V_{CC}\ \text{transiently}
+I_B \downarrow,\; I_C \downarrow \;\Rightarrow\; \Delta V_{RC} \downarrow \;\Rightarrow\; V_C \uparrow
+$$
+
+**Overshoot above $V_{CC}$**  
+$$
+I_C \to 0 \text{ (at cutoff)} \;\Rightarrow\; V_{\mathrm{KICK}} \approx L\,\frac{di}{dt},\quad V_C > V_{CC} \text{ transiently}
 $$
 
 ---
