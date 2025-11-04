@@ -48,7 +48,7 @@ A Colpitts LC oscillator using a 2N2222 common-emitter stage with capacitive div
 Designed at $V_{CC}=10\,\mathrm{V}$; bias near mid-supply; startup ensured by $\lvert A_v\beta\rvert>1$.
 
 > **Schematic**  
-![Colpitts Schematic](./Project%202%20-%20Colpitts%20Oscillator/schematic.png)
+![Colpitts Schematic](./Project%202%20-%20Colpitts%20Oscillator/Schematic.png)
 
 ---
 
