@@ -177,7 +177,7 @@ Read $V_{\mathrm{out,pp}}$ from the waveform.
 Plot supply current and compute
 
 $$
-P_{DC}=V_{CC}\I_{\text{avg}}
+P_{DC}=V_{CC}\,I_{\text{avg}}
 $$
 
 ---
