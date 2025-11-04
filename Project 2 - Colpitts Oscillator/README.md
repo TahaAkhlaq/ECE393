@@ -98,7 +98,7 @@ $$
 f_0=\frac{1}{2\pi}\sqrt{\frac{1}{L\,\left(\dfrac{(C_1\parallel C_{\mathrm{par}})(C_2\parallel C_{\mathrm{par}})}{C_1\parallel C_{\mathrm{par}}+C_2\parallel C_{\mathrm{par}}}\right)}}
 $$
 
-**Sources:** scope probe 10× tip ($\approx 10$–$15\ \text{pF}$), BJT ($C_\mu, C_\pi$), wiring, breadboard.
+**Sources:** scope probe 10× tip $(\approx 10\text{–}15\,\text{pF})$, BJT $(C_{\mu},\,C_{\pi})$, wiring, breadboard.
 
 ### 2) Output $V_{\mathrm{out,pp}}$ is lower
 
@@ -122,21 +122,21 @@ $$
 
 ---
 
-## Saturation analysis on $V_C$
+### Saturation analysis on $V_C$
 
 **Headroom at negative peak**
 $$
-V_C\downarrow\ \Rightarrow\ V_{CE}\downarrow\ \Rightarrow\ V_{CE}\to V_{CE(\mathrm{sat})}.
+V_C \downarrow \;\Rightarrow\; V_{CE} \downarrow \;\Rightarrow\; V_{CE}\to V_{CE(\mathrm{sat})}
 $$
 
 **Exit from saturation**
 $$
-I_B\downarrow,\ I_C\downarrow\ \Rightarrow\ \Delta V_{RC}\downarrow\ \Rightarrow\ V_C\uparrow.
+I_B \downarrow,\ I_C \downarrow \;\Rightarrow\; \Delta V_{RC} \downarrow \;\Rightarrow\; V_C \uparrow
 $$
 
 **Overshoot above $V_{CC}$**
 $$
-I_C\to 0\ \text{at cutoff}\ \Rightarrow\ V_{\mathrm{KICK}}\approx L\frac{di}{dt},\quad V_C>V_{CC}\ \text{transiently}.
+I_C \to 0 \ \text{at cutoff} \;\Rightarrow\; V_{\mathrm{KICK}}\approx L\,\frac{di}{dt},\quad V_C>V_{CC}\ \text{transiently}
 $$
 
 ---
