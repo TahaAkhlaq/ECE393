@@ -17,8 +17,6 @@ Key learning experiences include:
 * **Team-Based Collaboration** – Working in design teams to troubleshoot, document, and present circuit results with engineering precision.
 * **Professional Communication** – Writing detailed lab-style documentation and giving technical presentations to communicate design intent and results clearly.
 
-By the end of this course, students gain confidence in taking a circuit from concept to working prototype, validating design goals through both simulation and experiment.
-
 ---
 
 ## Learning Objectives
