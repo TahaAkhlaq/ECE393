@@ -48,6 +48,13 @@ Designed at $V_{CC}=10\,\mathrm{V}$; bias near mid-supply; startup ensured by $\
 > **Schematic**  
 ![Colpitts Schematic](./Project%202%20-%20Colpitts%20Oscillator/Schematic.png)
 
+### [Project 3: Active Mixer](./Project%203%20-%20Active%20Mixer/ "Read More")
+
+An active downconversion chain combining a BJT LC local oscillator, an op-amp differential LO phase splitter, an NMOS commutating mixer that steers the RF-driven tail current between load resistors, and a differential amplifier plus RC low-pass filtering to recover the baseband output.
+
+> **Schematic**  
+![Active Mixer Schematic](./Project%203%20-%20Active%20Mixer/schematic.png)
+
 ---
 
 ## Copyright & Licensing
